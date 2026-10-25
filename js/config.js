@@ -30,7 +30,7 @@ window.SITE_CONFIG = {
     },
     // Path to the OFFICIAL logo supplied by Urban Money, e.g. "assets/logo.svg".
     // Leave empty to show a text wordmark until the file arrives.
-    logo: "assets/logo.png"
+    logo: "assets/logo.webp"
   },
 
   /* ---------- Lead handling ---------- */
@@ -44,7 +44,7 @@ window.SITE_CONFIG = {
   /* ---------- Tracking (leave "" to disable each) ---------- */
   tracking: {
     gtmId: "",          // e.g. "GTM-XXXXXXX"
-    ga4Id: "",          // e.g. "G-XXXXXXXXXX"
+    ga4Id: "G-XXXXXXXXXX", // TODO: replace with your real GA4 Measurement ID (GA4 > Admin > Data streams). Then run: python3 build.py
     metaPixelId: "",    // e.g. "123456789012345"
     googleAdsId: "",    // e.g. "AW-123456789"
     googleAdsLeadLabel: "" // conversion label for form submit, e.g. "AbCdEfGh"
@@ -195,7 +195,7 @@ window.SITE_CONFIG = {
   /* ---------- Team (photo: path like "assets/team/vijay.jpg", or "" for initials) ---------- */
   team: {
     featured: {
-      name: "Vijay Chauhan", role: "Regional Manager", photo: "assets/team/vijay-chauhan.jpg",
+      name: "Vijay Chauhan", role: "Regional Manager", photo: "assets/team/vijay-chauhan.webp",
       experience: "[X years] experience",
       message: "[Two-line personal message from Vijay – e.g. why customers in Pune can trust this office and what you promise every borrower.]"
     },

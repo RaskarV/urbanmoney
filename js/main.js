@@ -27,11 +27,15 @@
       window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
       loadScript("https://www.googletagmanager.com/gtm.js?id=" + encodeURIComponent(T.gtmId));
     }
-    if (T.ga4Id || T.googleAdsId) {
+    /* GA4's gtag.js + config call live in the <head> (written by build.py). Only load it here if that's missing. */
+    var gaInHead = !!document.querySelector('script[src*="googletagmanager.com/gtag/js"]');
+    if (!gaInHead && (T.ga4Id || T.googleAdsId)) {
       loadScript("https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(T.ga4Id || T.googleAdsId));
       window.gtag("js", new Date());
       if (T.ga4Id) window.gtag("config", T.ga4Id);
-      if (T.googleAdsId) window.gtag("config", T.googleAdsId);
+    }
+    if (T.googleAdsId) {
+      window.gtag("config", T.googleAdsId);
     }
     if (T.metaPixelId) {
       /* Standard Meta Pixel bootstrap */
@@ -77,7 +81,7 @@
   /* ---------------- Brand ---------------- */
   $$("[data-brand]").forEach(function (el) {
     el.innerHTML = B.logo
-      ? '<img class="brand__logo" src="' + esc(B.logo) + '" alt="Urban Money" height="40"><span class="brand__tag">Pune Regional Office</span>'
+      ? '<img class="brand__logo" src="' + esc(B.logo) + '" alt="Urban Money" width="125" height="49" fetchpriority="high" decoding="async"><span class="brand__tag">Pune Regional Office</span>'
       : '<span class="brand__mark" aria-hidden="true">UM</span><span>Urban Money<span class="brand__sub">Pune Regional Office</span></span>';
   });
 
@@ -342,7 +346,7 @@
 
   /* ---------------- Team ---------------- */
   function avatar(p) {
-    return '<div class="avatar">' + (p.photo ? '<img src="' + esc(p.photo) + '" alt="' + esc(p.name + ", " + p.role) + '" loading="lazy" width="400" height="400">' : '<span aria-hidden="true">' + esc(initials(p.name) || "?") + "</span>") + "</div>";
+    return '<div class="avatar">' + (p.photo ? '<img src="' + esc(p.photo) + '" alt="' + esc(p.name + ", " + p.role) + '" loading="lazy" decoding="async" width="440" height="585">' : '<span aria-hidden="true">' + esc(initials(p.name) || "?") + "</span>") + "</div>";
   }
   var F = C.team.featured;
   $("#team-featured").innerHTML = '<article class="card featured reveal">' + avatar(F) + '<div><h3>' + esc(F.name) + '</h3><p class="featured__role">' + esc(F.role) +

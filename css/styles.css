@@ -1,3 +1,4 @@
+/* @critical-start (inlined into index.html by build.py) */
 /* =====================================================================
    Pune Regional Office landing page — mobile-first styles
    Change --brand / --brand-dark to match the official brand colour.
@@ -209,6 +210,7 @@ address { font-style: normal; }
 .consent-mini { font-size: .78rem; color: var(--ink-3); margin: 0 0 12px; }
 .form__msg { min-height: 1.2em; font-size: .88rem; color: #d64545; margin: 10px 0 0; text-align: center; }
 
+/* @critical-end */
 /* ---------- Stats ---------- */
 .stats { background: var(--brand); color: #fff; padding: 32px 0; }
 .stats__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 12px; text-align: center; }
@@ -387,6 +389,7 @@ input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 
 .footer__bottom { border-top: 1px solid rgba(255,255,255,.1); margin-top: 36px; padding-top: 20px; font-size: .82rem; }
 .disclaimer { color: rgba(255,255,255,.55); }
 
+/* @critical-start */
 /* Mobile bar & FAB */
 .mbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1fr 1.2fr; background: #fff; border-top: 1px solid var(--line); box-shadow: 0 -6px 20px rgba(16,24,40,.08); padding-bottom: env(safe-area-inset-bottom); }
 .mbar a { display: flex; align-items: center; justify-content: center; gap: 6px; height: 60px; font-weight: 700; font-size: .95rem; color: var(--ink); }
@@ -419,6 +422,7 @@ input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 
 .pcard__head { gap: 12px; }
 .loan .checklist { align-content: start; }
 .pcard .picon svg { width: 66%; height: 66%; }
+/* @critical-end */
 
 /* =====================================================================
    Loan showcase — alternating text + tilted promo poster
@@ -589,9 +593,12 @@ input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 
   .journey__line { transition: none; } .jstep__node { transition: none !important; }
 }
 
+/* @critical-start */
 /* Official logo (supplied file) */
 .brand__logo { height: 40px; width: auto; display: block; }
 .brand__tag { padding-left: 10px; margin-left: 2px; border-left: 1.5px solid var(--line); font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); line-height: 1.25; max-width: 92px; }
 .brand--light .brand__logo { filter: brightness(0) invert(1); }
 .brand--light .brand__tag { color: rgba(255,255,255,.6); border-left-color: rgba(255,255,255,.2); }
 @media (max-width: 380px) { .brand__tag { display: none; } }
+
+/* @critical-end */

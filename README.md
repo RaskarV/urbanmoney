@@ -1,6 +1,6 @@
 # Urban Money – Pune Regional Office landing page
 
-A static, single-page lead-generation site: plain HTML/CSS/JS with no build step. It deploys anywhere (Netlify, Vercel, cPanel or any regular host).
+A static, single-page lead-generation site: plain HTML/CSS/JS. It deploys anywhere (Netlify, Vercel, cPanel or any regular host). Run `python3 build.py` after editing CSS or JS (see "Build step" below).
 
 ```
 index.html          page structure + SEO meta + schema markup
@@ -25,6 +25,24 @@ assets/             logo, favicon, og-image, team photos
 9. **OG image**: add `assets/og-image.jpg` (1200×630).
 10. **Schema**: the JSON-LD in `index.html` holds address, phone and hours. Keep it in sync with `config.js`, and check the geo coordinates against Google Maps.
 11. Get `privacy.html` and `terms.html` reviewed by compliance.
+
+## Build step (performance)
+
+Edit the readable sources (`css/styles.css`, `js/config.js`, `js/main.js`), then run:
+
+```
+python3 build.py
+```
+
+It needs only Python 3 and does three things:
+
+- inlines the above-the-fold CSS (the blocks between `@critical-start` / `@critical-end` in `styles.css`) into `index.html`,
+- writes the rest of the CSS to `css/styles.min.css`, loaded without blocking render,
+- bundles and minifies `config.js` + `main.js` into `js/app.min.js` (loaded with `defer`).
+
+The page loads the generated files, so changes to the sources only show up after a build. Commit the generated files too. Images are WebP (`assets/logo.webp`, `assets/team/*.webp`); convert any new photo to WebP before adding it.
+
+`sitemap.xml` and `robots.txt` live in the root. If you move to a custom domain, update the domain in both files and in the canonical / og / schema URLs in `index.html`.
 
 ## Ad landing URLs
 

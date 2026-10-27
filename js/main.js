@@ -242,7 +242,7 @@
     tiles.innerHTML = C.banks.map(function (b) {
       var col = palette[hash(b.name) % palette.length];
       var inner = b.logo
-        ? '<img src="' + esc(b.logo) + '" alt="' + esc(b.name) + '" loading="lazy" width="120" height="40">'
+        ? '<img src="' + esc(b.logo) + '" alt="' + esc(b.name) + '" loading="lazy">'
         : '<span class="btile__mono" style="--c:' + col + '">' + esc(mono(b)) + '</span><span class="btile__name">' + esc(b.name) + "</span>";
       return '<li class="btile" data-type="' + esc(b.type) + '" title="' + esc(b.name) + '">' + inner + "</li>";
     }).join("");

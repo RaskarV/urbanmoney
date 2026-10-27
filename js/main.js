@@ -144,8 +144,8 @@
   statsIO.observe($("#hero-stats"));
 
   /* ---------------- Hero promo slider ---------------- */
-  var track = $("#promo-track"), dotsEl = $("#promo-dots"), slides = C.hero.slides;
-  track.innerHTML = slides.map(function (sl, i) {
+  var promoTrack = $("#promo-track"), dotsEl = $("#promo-dots"), slides = C.hero.slides;
+  promoTrack.innerHTML = slides.map(function (sl, i) {
     return '<article class="slide" aria-roledescription="slide" aria-label="' + (i + 1) + " of " + slides.length + '">' +
       "<h2>" + esc(sl.pre) + " <em>" + esc(sl.hl) + "</em> " + esc(sl.post) + "</h2><p>" + esc(sl.text) + "</p>" +
       '<button class="btn" type="button" data-enquire="' + esc(sl.loan) + '">' + esc(sl.cta) + " " + icon("right") + "</button>" +
@@ -155,17 +155,17 @@
     return '<button type="button" role="tab" aria-label="Show offer ' + (i + 1) + '" aria-selected="' + (i === 0) + '"></button>';
   }).join("");
   var dots = $$("button", dotsEl), cur = 0;
-  function goSlide(i) { track.scrollTo({ left: i * track.clientWidth, behavior: "smooth" }); }
+  function goSlide(i) { promoTrack.scrollTo({ left: i * promoTrack.clientWidth, behavior: "smooth" }); }
   dots.forEach(function (d, i) { d.addEventListener("click", function () { goSlide(i); restart(); }); });
-  track.addEventListener("scroll", function () {
-    var i = Math.round(track.scrollLeft / track.clientWidth);
+  promoTrack.addEventListener("scroll", function () {
+    var i = Math.round(promoTrack.scrollLeft / promoTrack.clientWidth);
     if (i !== cur) { cur = i; dots.forEach(function (d, j) { d.setAttribute("aria-selected", j === i); }); }
   }, { passive: true });
   var timer;
   function restart() { clearInterval(timer); if (!reduceMotion) timer = setInterval(function () { goSlide((cur + 1) % slides.length); }, 5000); }
-  track.addEventListener("mouseenter", function () { clearInterval(timer); });
-  track.addEventListener("mouseleave", restart);
-  track.addEventListener("touchstart", function () { clearInterval(timer); }, { passive: true });
+  promoTrack.addEventListener("mouseenter", function () { clearInterval(timer); });
+  promoTrack.addEventListener("mouseleave", restart);
+  promoTrack.addEventListener("touchstart", function () { clearInterval(timer); }, { passive: true });
   restart();
 
   /* ---------------- Hero product cards ---------------- */
@@ -371,20 +371,6 @@
       if (e.key === "ArrowRight" || e.key === "ArrowLeft") { var n = tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length]; selectTab(n); n.focus(); }
     });
   });
-
-  /* ---------------- Testimonials ---------------- */
-  var slider = $("#t-slider");
-  slider.innerHTML = C.testimonials.map(function (t) {
-    var stars = ""; for (var i = 0; i < t.stars; i++) stars += icon("star");
-    return '<figure class="card review">' + (t.placeholder ? '<span class="tag">Sample</span>' : "") +
-      '<div class="review__stars" aria-label="' + t.stars + ' out of 5 stars">' + stars + "</div><blockquote><p>" + esc(t.text) +
-      '</p></blockquote><figcaption><p class="review__who">' + esc(t.name) + '</p><p class="review__meta">' + esc(t.area) + " · " + esc(t.loan) + "</p></figcaption></figure>";
-  }).join("");
-  var step = function () { var c = slider.firstElementChild; return c ? c.getBoundingClientRect().width + 16 : 300; };
-  $("#t-prev").addEventListener("click", function () { slider.scrollBy({ left: -step(), behavior: "smooth" }); });
-  $("#t-next").addEventListener("click", function () { slider.scrollBy({ left: step(), behavior: "smooth" }); });
-  var gr = $("#g-reviews");
-  if (isPlaceholder(B.googleReviewsUrl)) gr.parentElement.hidden = true; else gr.href = B.googleReviewsUrl;
 
   /* ---------------- FAQ ---------------- */
   $("#faq-list").innerHTML = C.faqs.map(function (f, i) {

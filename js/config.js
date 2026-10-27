@@ -215,19 +215,6 @@ window.SITE_CONFIG = {
     property: "For Home Loan / LAP: property papers – sale agreement / title deed, approved plan, index II, tax receipts."
   },
 
-  /* ---------- Testimonials ----------
-     IMPORTANT: publish only GENUINE reviews from real customers, with their
-     permission. Entries marked placeholder:true show a "Sample" tag; replace
-     them with real reviews (or delete them) before going live.            */
-  testimonials: [
-    { placeholder: true, name: "[Customer name]", area: "[Area, e.g. Kothrud]", loan: "Home Loan", stars: 5,
-      text: "[Paste a real customer review here.]" },
-    { placeholder: true, name: "[Customer name]", area: "[Area, e.g. Baner]", loan: "Loan Against Property", stars: 5,
-      text: "[Paste a real customer review here.]" },
-    { placeholder: true, name: "[Customer name]", area: "[Area, e.g. Hadapsar]", loan: "Business Loan", stars: 5,
-      text: "[Paste a real customer review here.]" }
-  ],
-
   /* ---------- FAQs ---------- */
   faqs: [
     { q: "Is your service free for customers?",

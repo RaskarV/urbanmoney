@@ -20,7 +20,7 @@ window.SITE_CONFIG = {
     phoneE164: "+918793596779",
     whatsapp: "918793596779",
     whatsappText: "Hi, I want to enquire about a loan",
-    email: "[office email]",
+    email: "jai.chauhan116@gmail.com",
     hours: "Mon–Sat, 10:00 AM – 7:00 PM",
     googleReviewsUrl: "[Google Business Profile link]",
     social: {

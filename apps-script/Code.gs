@@ -14,7 +14,7 @@
  * (the URL stays the same).
  */
 
-var OFFICE_EMAIL = "[office email]";      // where new-lead alerts go (comma-separate for several)
+var OFFICE_EMAIL = "jai.chauhan116@gmail.com";      // where new-lead alerts go (comma-separate for several)
 var SHEET_NAME   = "Leads";
 
 var COLUMNS = [

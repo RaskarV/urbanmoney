@@ -92,7 +92,7 @@ function sendEmail(d) {
  *     method: "post",
  *     contentType: "application/json",
  *     headers: { Authorization: "Bearer YOUR_API_KEY" },
- *     payload: JSON.stringify({ to: "919325526761", text: "New lead: " + d.name + " " + d.mobile + " – " + d.loan_type })
+ *     payload: JSON.stringify({ to: "918793596779", text: "New lead: " + d.name + " " + d.mobile + " – " + d.loan_type })
  *   });
  * }
  */

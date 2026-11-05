@@ -37,7 +37,7 @@ window.SITE_CONFIG = {
   leads: {
     // Paste the Web App URL from apps-script/Code.gs deployment here.
     // While empty, the form runs in DEMO mode (shows thank-you, sends nothing).
-    webhookUrl: "https://script.google.com/macros/s/AKfycbxmTIgvCHD10Pha847MoAgd1dFwKh4whSxnJjZicxTnkPicSDSEpMY4yY8W7TbPV2hgUg/exec",
+    webhookUrl: "https://script.google.com/macros/s/AKfycbzIP9UHBvibgXR5cd5LWagsjcd8CazTMmrK9KG8whUDvgCdSRk6j2rqFcK5QyA32Pd_/exec",
     thankYouText: "Thank you! Our loan expert will call you within 30 minutes during working hours."
   },
 
